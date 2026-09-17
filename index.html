@@ -1,8 +1,46 @@
-++w+w<a href="https://wa.me/251923831677?text=ሰላም%20Mele%20Fashion%2C%20ማዘዣ%20ማድረግ%20እፈልጋለሁ"
++++w+w<a href="https://wa.me/251923831677?text=ሰላም%20Mele%20Fashion%2C%20ማዘዣ%20ማድረግ%20እፈልጋለሁ"
    target="_blank"
    style="display:block;text-align:center;padding:14px;margin:15px 0;background:#25D366;color:white;text-decoration:none;border-radius:10px;font-weight:bold;">
    📱 WhatsApp ማዘዣ
-</a>+</body>
+</a>+<div class="order-box">
+  <h2>🛍️ Mele Fashion ማዘዣ</h2>
+
+  <input id="name" placeholder="ስምዎ">
+  <input id="phone" placeholder="ስልክ ቁጥር">
+  <input id="dress" placeholder="የልብስ አይነት">
+  <input id="meters" placeholder="ስንት ሜትር?">
+  <input id="color" placeholder="ቀለም">
+  <input id="address" placeholder="የማድረሻ ቦታ">
+
+  <button onclick="sendOrder()">📱 ማዘዣ ላክ</button>
+</div>
+
+<script>
+function sendOrder() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const dress = document.getElementById("dress").value;
+  const meters = document.getElementById("meters").value;
+  const color = document.getElementById("color").value;
+  const address = document.getElementById("address").value;
+
+  const message =
+    "ሰላም Mele Fashion!%0A%0A" +
+    "🛍️ አዲስ ማዘዣ%0A" +
+    "ስም: " + name + "%0A" +
+    "ስልክ: " + phone + "%0A" +
+    "ልብስ: " + dress + "%0A" +
+    "ሜትር: " + meters + "%0A" +
+    "ቀለም: " + color + "%0A" +
+    "ማድረሻ: " + address;
+
+  window.open(
+    "https://wa.me/251923831677?text=" + message,
+    "_blank"
+  );
+}
+</script>
++</body>
 +w+x
 
 +<!doctype html>
