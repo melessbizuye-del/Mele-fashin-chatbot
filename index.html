@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mele Fashion Chatbot</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f7f4f0;color:#222}
+header{background:#111;color:white;padding:18px;text-align:center}
+main{max-width:900px;margin:auto;padding:16px}
+.chat{background:white;border-radius:16px;padding:16px;box-shadow:0 2px 12px #0001}
+.msg{padding:10px 12px;border-radius:12px;margin:8px 0;white-space:pre-wrap}
+.bot{background:#f0ece6} .user{background:#e8eefc;text-align:right}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.card{background:white;border:1px solid #ddd;border-radius:12px;overflow:hidden;cursor:pointer}
+.card img{width:100%;height:190px;object-fit:cover}
+.card b{display:block;padding:9px;font-size:14px}
+button{border:0;border-radius:10px;padding:10px 13px;margin:4px;background:#222;color:white}
+input{width:70%;padding:12px;border:1px solid #ccc;border-radius:10px}
+</style>
+</head>
+<body>
+<header><h2>👗 Mele Fashion</h2><div>የሴቶች ቀሚስ Design Chatbot</div></header>
+<main>
+<div class="chat" id="chat">
+  <div class="msg bot">ሰላም 👋 ወደ Mele Fashion እንኳን በደህና መጡ!\nየሚፈልጉትን የቀሚስ Design ቁጥር ይምረጡ።</div>
+  <div id="grid" class="grid"></div>
+  <div style="margin-top:12px">
+    <input id="q" placeholder="ለምሳሌ 5 ወይም 'አንገት ጊታር'">
+    <button onclick="ask()">ላክ</button>
+  </div>
+</div>
+</main>
+<script>
+const designs = [{'id': 1, 'name': 'Normal ቀሚስ Design', 'img': 'images/design_1.jpg'}, {'id': 2, 'name': 'አጭር አስመራ ቀሚስ Design', 'img': 'images/design_2.jpg'}, {'id': 3, 'name': 'አንድ አስመራ ቀሚስ Design', 'img': 'images/design_3.jpg'}, {'id': 4, 'name': 'ሁለቱ አስመራ ቀሚስ Design', 'img': 'images/design_4.jpg'}, {'id': 5, 'name': 'አንገት ጊታር ቀሚስ Design', 'img': 'images/design_5.jpg'}, {'id': 6, 'name': 'አንገት ፒትስ ቀሚስ Design', 'img': 'images/design_6.jpg'}, {'id': 7, 'name': 'አንገት ቁልፍ ቀሚስ Design', 'img': 'images/design_7.jpg'}, {'id': 8, 'name': 'አንገት ሀ-ቅርፅ ቀሚስ Design', 'img': 'images/design_8.jpg'}, {'id': 9, 'name': 'ሶስት አስመራ ቀሚስ Design', 'img': 'images/design_9.jpg'}, {'id': 10, 'name': 'የቅርፅ ቀሚስ Design', 'img': 'images/design_10.jpg'}, {'id': 11, 'name': 'የወገብ ቅርፅ ቀሚስ Design', 'img': ''}, {'id': 12, 'name': 'ረጅም ቀሚስ Design', 'img': ''}, {'id': 13, 'name': 'አጭር ቀሚስ Design', 'img': ''}, {'id': 14, 'name': 'የፕሪንሰስ ቅርፅ ቀሚስ Design', 'img': ''}, {'id': 15, 'name': 'የፍላየር ቀሚስ Design', 'img': ''}, {'id': 16, 'name': 'የማርሜድ ቅርፅ ቀሚስ Design', 'img': ''}, {'id': 17, 'name': 'የተከፈተ ጎን ቀሚስ Design', 'img': ''}, {'id': 18, 'name': 'የተደራረበ ቀሚስ Design', 'img': ''}, {'id': 19, 'name': 'የእጅጌ ልዩ ዲዛይን ቀሚስ', 'img': ''}, {'id': 20, 'name': 'ልዩ አንገት ዲዛይን ቀሚስ', 'img': ''}];
+const grid = document.getElementById('grid');
+function render(list=designs){
+  grid.innerHTML = list.map(d => `<div class="card" onclick="choose(${d.id})">
+    ${d.img ? `<img src="${d.img}" alt="">` : ''}
+    <b>${d.id}. ${d.name}</b>
+  </div>`).join('');
+}
+function add(text, cls) {
+  const el=document.createElement('div'); el.className='msg '+cls; el.textContent=text;
+  document.getElementById('chat').insertBefore(el,grid); window.scrollTo(0,document.body.scrollHeight);
+}
+function choose(id) {
+  const d=designs.find(x=>x.id===id); add(String(id),'user');
+  add(`የመረጡት: ${d.name}\n\nይህን Design ለማዘዝ የጨርቅ አይነት፣ ቀለም እና መጠን ይላኩልን።\n\nMele Fashion 👗`,'bot');
+}
+function ask(){
+  const v=document.getElementById('q').value.trim(); if(!v)return;
+  const n=parseInt(v); if(n>=1 && n<=20) choose(n);
+  else {
+    const d=designs.find(x=>x.name.includes(v));
+    if(d) choose(d.id);
+    else add(v,'user'), add('እባክዎ ከ1–20 የDesign ቁጥር ይምረጡ።','bot');
+  }
+  document.getElementById('q').value='';
+}
+render();
+</script>
+</body>
+</html>
