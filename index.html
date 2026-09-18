@@ -1,4 +1,4 @@
-+++<!DOCTYPE html>
++++++++++<!DOCTYPE html>
 <html lang="am">
 <head>
 <meta charset="UTF-8">
@@ -25,7 +25,7 @@ button{border:0;border-radius:10px;padding:13px 18px;margin:5px;font-size:16px;c
 
 <div class="container">
 <div class="box">
-<button onclick="document.querySelector('.gallery').scrollIntoView({behavior:'smooth'})">👗 Sample አሳይ</button>++
+<button onclick="document.querySelector('.gallery').scrollIntoView({behavior:'smooth'})">👗
 <button onclick="document.querySelector('.gallery').style.display='grid'">👗 Photo አሳይ</button>++
 <h2>👗የልብስ ፎቶዎች</h2>
   <div class="gallery">
@@ -40,24 +40,19 @@ button{border:0;border-radius:10px;padding:13px 18px;margin:5px;font-size:16px;c
     <img src="images/dress09.jpg" alt="Mele Fashion dress 9">
     <img src="images/dress10.jpg" alt="Mele Fashion dress 10">
     <img src="images/dress11.jpg" alt="Mele Fashion dress 11">
-    <img src="images/dress12.jpg" alt="Mele Fashion dress 12">
+    <img src="images/dress1+2.jpg" alt="Mele Fashion dress 12">
     <img src="images/dress13.jpg" alt="Mele Fashion dress 13">
     <img src="images/dress14.jpg" alt="Mele Fashion dress 14">
-  </div>
-</div>
-
-<div class="price-box" id="prices" style="display:none;">
-  <h2>💰 Mele Fashion ዋጋ</h2>
+<button onclick="document.getElementById('prices').style.display='block'">💰 ዋጋ እይ</button>
+<div class="price-box" id="prices" style="display:none">
+<h2>💰 Mele Fashion ዋጋ</h2>
   <p>👗 Stock — 3m: 2,500 ብር | 4m: 3,500 ብር | 6m: 4,500 ብር</p>
   <p>✨ ወርቃማ — 3m: 3,000 ብር | 4m: 4,000 ብር | 6m: 5,000 ብር</p>
   <p>💎 Satin — 3m: 3,500 ብር | 4m: 4,500 ብር | 6m: 5,500 ብር</p>
-</div>
-
 <a class="whatsapp" href="https://wa.me/251923831677?text=%E1%88%B0%E1%88%8B%E1%88%9D%20Mele%20Fashion%2C%20%E1%88%9B%E1%8B%98%E1%8B%A3%20%E1%88%9B%E1%8B%B5%E1%88%A8%E1%8C%8D%20%E1%8A%A5%E1%8D%88%E1%88%8D%E1%8C%8B%E1%88%88%E1%88%81" target="_blank">📱 WhatsApp ማዘዣ</a>
-
 <div class="order-box box">
   <h2>🛍️ Mele Fashion ማዘዣ</h2>
-  <input id="name" placeholder="ስምዎ">
+  <input id="nam+e" placeholder="ስምዎ">
   <input id="phone" placeholder="ስልክ ቁጥር">
   <input id="dress" placeholder="የልብስ አይነት">
   <input id="meters" placeholder="ስንት ሜትር?">
@@ -71,7 +66,7 @@ button{border:0;border-radius:10px;padding:13px 18px;margin:5px;font-size:16px;c
 function showPrices(){
   const prices=document.getElementById("prices");
   prices.style.display="block";
-  prices.scrollIntoView({behavior:"smooth"});
+  prices.scrollIntoView({behavior:"smooth"});+
 }
 function sendOrder(){
   const name=document.getElementById("name").value;
@@ -81,8 +76,8 @@ function sendOrder(){
   const color=document.getElementById("color").value;
   const address=document.getElementById("address").value;
   const message=
-    "ሰላም Mele Fashion!%0A%0A"+
-    "🛍️ አዲስ ማዘዣ%0A"+
+    "ሰላም Mele Fashion!%0A%0A"
+    "🛍️ አዲስ ማዘዣ%0A"
     "ስም: "+encodeURIComponent(name)+"%0A"+
     "ስልክ: "+encodeURIComponent(phone)+"%0A"+
     "ልብስ: "+encodeURIComponent(dress)+"%0A"+
